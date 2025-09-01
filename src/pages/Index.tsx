@@ -64,14 +64,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-background">
       {/* Header */}
-      <header className="bg-primary text-primary-foreground p-4 shadow-medium border-b border-border">
+      <header className="bg-gradient-primary text-white p-4 shadow-medium">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-primary-foreground rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
               <span className="text-primary font-bold text-lg">C</span>
             </div>
             <div>
-              <h1 className="text-lg font-semibold">CYBORG IT SERVICES Pvt Ltd</h1>
+              <h1 className="text-xl font-bold">CYBORG IT SERVICES Pvt Ltd</h1>
               <p className="text-sm opacity-90">Enterprise Management System</p>
             </div>
           </div>

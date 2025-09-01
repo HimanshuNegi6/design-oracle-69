@@ -23,32 +23,37 @@ export const InfoSection = ({ title, type, items = [] }: InfoSectionProps) => {
 
   const getGradient = () => {
     switch (type) {
-      case 'services': return 'bg-secondary';
-      case 'notices': return 'bg-accent';
-      case 'news': return 'bg-muted';
+      case 'services': return 'bg-gradient-primary';
+      case 'notices': return 'bg-gradient-secondary';
+      case 'news': return 'bg-accent';
     }
   };
 
   return (
-    <Card className="bg-card border border-border h-full rounded-lg shadow-soft">
-      <CardHeader className="pb-4">
-        <CardTitle className={`flex items-center gap-2 text-foreground p-3 rounded-md ${getGradient()} border border-border`}>
-          {getIcon()}
-          <span className="font-semibold">{title}</span>
+    <Card className="bg-gradient-card border border-accent/30 h-full rounded-2xl shadow-medium relative overflow-hidden">
+      <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-secondary rounded-full opacity-20" />
+      
+      <CardHeader className="pb-3 relative">
+        <CardTitle className={`flex items-center gap-3 text-white p-4 rounded-2xl ${getGradient()} shadow-medium relative overflow-hidden`}>
+          <div className="absolute inset-0 bg-white/10" />
+          <div className="relative flex items-center gap-3">
+            {getIcon()}
+            <span className="font-bold">{title}</span>
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {items.length > 0 ? (
           items.map((item, index) => (
-            <div key={index} className="p-3 rounded-md bg-secondary/50 hover:bg-secondary transition-colors duration-200 border border-border/50">
-              <h4 className="font-medium text-foreground text-sm mb-1">{item.title}</h4>
+            <div key={index} className="p-4 rounded-xl bg-muted/30 hover:bg-gradient-secondary/20 transition-all duration-300 border border-accent/20 hover:border-primary/40 hover:shadow-soft">
+              <h4 className="font-bold text-foreground text-sm mb-2">{item.title}</h4>
               {item.date && (
-                <Badge variant="outline" className="text-xs mb-2 border-border">
+                <Badge className="bg-gradient-primary text-white text-xs mb-2 px-3 py-1 rounded-full">
                   {item.date}
                 </Badge>
               )}
               {item.content && (
-                <p className="text-xs text-muted-foreground">{item.content}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.content}</p>
               )}
             </div>
           ))
