@@ -20,24 +20,28 @@ export const UserProfile = ({
   systemId 
 }: UserProfileProps) => {
   return (
-    <Card className="bg-gradient-card backdrop-blur-sm border border-white/20 p-6">
-      <div className="text-center mb-6">
+    <Card className="bg-gradient-card border border-accent/30 p-6 rounded-3xl shadow-strong relative overflow-hidden">
+      <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-primary rounded-full opacity-10" />
+      <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-secondary rounded-full opacity-10" />
+      
+      <div className="text-center mb-6 relative">
         <div className="relative mx-auto mb-4">
-          <Avatar className="w-24 h-24 mx-auto border-4 border-white shadow-medium">
+          <div className="absolute inset-0 bg-gradient-primary rounded-full animate-pulse opacity-20" />
+          <Avatar className="w-28 h-28 mx-auto border-4 border-primary shadow-strong relative">
             <AvatarImage src="/lovable-uploads/b91ec4f6-113d-4de2-9297-21fff3a26a65.png" alt={name} />
-            <AvatarFallback className="bg-gradient-primary text-white text-2xl font-bold">
+            <AvatarFallback className="bg-gradient-secondary text-white text-3xl font-bold">
               {name.split(' ').map(n => n[0]).join('')}
             </AvatarFallback>
           </Avatar>
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-            <Badge variant="secondary" className="bg-accent text-accent-foreground">
-              admin
+            <Badge className="bg-gradient-primary text-white px-4 py-1 rounded-full font-bold shadow-medium">
+              ADMIN
             </Badge>
           </div>
         </div>
         
-        <h2 className="text-xl font-bold text-foreground mb-2">{name}</h2>
-        <p className="text-sm text-muted-foreground mb-4">{designation}</p>
+        <h2 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">{name}</h2>
+        <p className="text-sm text-muted-foreground mb-4 font-medium">{designation}</p>
       </div>
       
       <div className="space-y-3 text-sm">

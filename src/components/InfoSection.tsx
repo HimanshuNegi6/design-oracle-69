@@ -30,25 +30,30 @@ export const InfoSection = ({ title, type, items = [] }: InfoSectionProps) => {
   };
 
   return (
-    <Card className="bg-gradient-card backdrop-blur-sm border border-white/20 h-full">
-      <CardHeader className="pb-3">
-        <CardTitle className={`flex items-center gap-2 text-white p-3 rounded-lg ${getGradient()}`}>
-          {getIcon()}
-          {title}
+    <Card className="bg-gradient-card border border-accent/30 h-full rounded-2xl shadow-medium relative overflow-hidden">
+      <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-secondary rounded-full opacity-20" />
+      
+      <CardHeader className="pb-3 relative">
+        <CardTitle className={`flex items-center gap-3 text-white p-4 rounded-2xl ${getGradient()} shadow-medium relative overflow-hidden`}>
+          <div className="absolute inset-0 bg-white/10" />
+          <div className="relative flex items-center gap-3">
+            {getIcon()}
+            <span className="font-bold">{title}</span>
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         {items.length > 0 ? (
           items.map((item, index) => (
-            <div key={index} className="p-3 rounded-lg bg-muted/50 hover:bg-muted/70 transition-colors duration-200">
-              <h4 className="font-medium text-foreground text-sm mb-1">{item.title}</h4>
+            <div key={index} className="p-4 rounded-xl bg-muted/30 hover:bg-gradient-secondary/20 transition-all duration-300 border border-accent/20 hover:border-primary/40 hover:shadow-soft">
+              <h4 className="font-bold text-foreground text-sm mb-2">{item.title}</h4>
               {item.date && (
-                <Badge variant="outline" className="text-xs mb-2">
+                <Badge className="bg-gradient-primary text-white text-xs mb-2 px-3 py-1 rounded-full">
                   {item.date}
                 </Badge>
               )}
               {item.content && (
-                <p className="text-xs text-muted-foreground">{item.content}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.content}</p>
               )}
             </div>
           ))
